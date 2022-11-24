@@ -84,7 +84,11 @@ class WeatherController: UIViewController {
         weekTableView.layer.cornerRadius = 14
         weekTableView.tableFooterView = UIView()
         weekTableView.separatorStyle = .none
-        weekTableView.sectionHeaderTopPadding = 0.0
+        if #available(iOS 15.0, *) {
+            weekTableView.sectionHeaderTopPadding = 0.0
+        } else {
+            // Fallback on earlier versions
+        }
         weekTableView.isScrollEnabled = false
         return weekTableView
     }()
@@ -225,7 +229,7 @@ extension WeatherController: UICollectionViewDelegate, UICollectionViewDataSourc
         let height = dayCollectionView.frame.height
         
         if indexPath.item == 3 {
-            return CGSize(width: dayCollectionView.frame.width - dayCollectionView.frame.width / 1.6, height: dayCollectionView.frame.height)
+            return CGSize(width: dayCollectionView.frame.width - dayCollectionView.frame.width / 1.5, height: dayCollectionView.frame.height)
         }
         return CGSize(width: width, height: height)
     }
@@ -237,8 +241,12 @@ extension WeatherController: UICollectionViewDelegate, UICollectionViewDataSourc
             cell.tempLabel.text = "Заход солнца"
             let image = UIImage(systemName: "sunset.fill")
             cell.weatherImage.image = image
-            let config = UIImage.SymbolConfiguration(paletteColors: [.white, .yellow])
-            cell.weatherImage.image = image!.applyingSymbolConfiguration(config)
+            if #available(iOS 15.0, *) {
+                let config = UIImage.SymbolConfiguration(paletteColors: [.white, .yellow])
+                cell.weatherImage.image = image!.applyingSymbolConfiguration(config)
+            } else {
+                cell.weatherImage.tintColor = .yellow
+            }
 
         } else {
             if let text = dayWeather[indexPath.row].temperature {
