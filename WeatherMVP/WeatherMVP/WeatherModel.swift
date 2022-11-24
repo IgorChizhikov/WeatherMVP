@@ -14,8 +14,8 @@ struct Weather: Codable {
     var city: String?
     var temperature: String?
     var weatherDescription: String?
-    var weatherPerDay = WeatherPerDay()
-    var forecast = Forecast()
+    var weatherPerDay: [DayWeather] = []
+    var forecast: [Forecast] = []
 
     enum CodingKeys: String, CodingKey {
         case city, temperature
@@ -33,7 +33,7 @@ struct Weather: Codable {
 
 // MARK: - WeatherPerDay -
 
-struct WeatherPerDay: Codable {
+struct DayWeather: Codable {
     let timestamp: String?
     let weatherType: String?
     let temperature: String?

@@ -15,7 +15,7 @@ class CollectionViewCell: UICollectionViewCell {
         let timeLabel = UILabel()
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
         timeLabel.textAlignment = .center
-        timeLabel.font = UIFont(name: "Helvetica", size: 15)
+        timeLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         timeLabel.textColor = .white
         
         return timeLabel
@@ -34,7 +34,7 @@ class CollectionViewCell: UICollectionViewCell {
         let tempLabel = UILabel()
         tempLabel.translatesAutoresizingMaskIntoConstraints = false
         tempLabel.textAlignment = .center
-        tempLabel.font = UIFont(name: "Helvetica", size: 15)
+        tempLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         tempLabel.textColor = .white
         
         return tempLabel
@@ -58,7 +58,7 @@ class CollectionViewCell: UICollectionViewCell {
             timeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             timeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             timeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            timeLabel.heightAnchor.constraint(equalToConstant: 10)
+            timeLabel.heightAnchor.constraint(equalToConstant: 15)
         ])
         contentView.addSubview(weatherImage)
         NSLayoutConstraint.activate([
@@ -72,7 +72,7 @@ class CollectionViewCell: UICollectionViewCell {
             tempLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             tempLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             tempLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
-            tempLabel.heightAnchor.constraint(equalToConstant: 10)
+            tempLabel.heightAnchor.constraint(equalToConstant: 15)
         ])
 
     }

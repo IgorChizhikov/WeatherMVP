@@ -11,9 +11,10 @@ class TableViewCell: UITableViewCell {
     
     static let identifier = "TableViewCell"
 
-    private var dayLabel: UILabel = {
+    var dayLabel: UILabel = {
         let dayLabel = UILabel()
         dayLabel.textColor = .white
+        dayLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         dayLabel.translatesAutoresizingMaskIntoConstraints = false
         
         return dayLabel
@@ -27,28 +28,30 @@ class TableViewCell: UITableViewCell {
         return weatherImage
     }()
     
-    private var dayTempLabel: UILabel = {
+    var minTempLabel: UILabel = {
         let dayTempLabel = UILabel()
-        dayTempLabel.textColor = .white
+        dayTempLabel.textColor = .systemGray2
         dayTempLabel.translatesAutoresizingMaskIntoConstraints = false
         dayTempLabel.textAlignment = .right
+        dayTempLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         
         return dayTempLabel
     }()
     
-    private var nightTempLabel: UILabel = {
+    var maxTempLabel: UILabel = {
         let nightTempLabel = UILabel()
         nightTempLabel.textColor = .white
         nightTempLabel.translatesAutoresizingMaskIntoConstraints = false
         nightTempLabel.textAlignment = .right
+        nightTempLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         
         return nightTempLabel
     }()
     
-    private let separatorView: UIView = {
+    let separatorView: UIView = {
         let separatorView = UIView()
         separatorView.translatesAutoresizingMaskIntoConstraints = false
-        separatorView.backgroundColor = .white
+        separatorView.backgroundColor = .systemGray
         return separatorView
     }()
 
@@ -59,16 +62,11 @@ class TableViewCell: UITableViewCell {
         contentView.addSubview(dayLabel)
         contentView.addSubview(separatorView)
         contentView.addSubview(weatherImage)
-        contentView.addSubview(dayTempLabel)
-        contentView.addSubview(nightTempLabel)
+        contentView.addSubview(minTempLabel)
+        contentView.addSubview(maxTempLabel)
         
-        dayLabel.text = "92"
-        weatherImage.image = UIImage(systemName: "heart")
+        weatherImage.image = UIImage(systemName: "cloud.fill")
         weatherImage.tintColor = .white
-        
-        dayTempLabel.text = "-10"
-        nightTempLabel.text = "18"
-
     }
     
     required init?(coder: NSCoder) {
@@ -80,40 +78,40 @@ class TableViewCell: UITableViewCell {
         super.layoutSubviews()
         
         NSLayoutConstraint.activate([
-            separatorView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            separatorView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            separatorView.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 15),
+            separatorView.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -15),
             separatorView.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -1),
             separatorView.heightAnchor.constraint(equalToConstant: 1)
             
         ])
         
         NSLayoutConstraint.activate([
-            dayLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            dayLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            dayLabel.widthAnchor.constraint(equalToConstant: contentView.frame.width / 4),
+            dayLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 15),
+            dayLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 0),
+            dayLabel.widthAnchor.constraint(equalToConstant: contentView.frame.width / 3),
             dayLabel.heightAnchor.constraint(equalToConstant: contentView.frame.height)
         ])
         
         NSLayoutConstraint.activate([
-            weatherImage.leadingAnchor.constraint(equalTo: dayLabel.trailingAnchor, constant: 10),
-            weatherImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            weatherImage.widthAnchor.constraint(equalToConstant: contentView.frame.height - 10),
-            weatherImage.heightAnchor.constraint(equalToConstant: contentView.frame.height - 10)
+            weatherImage.leadingAnchor.constraint(equalTo: dayLabel.trailingAnchor, constant: 15),
+            weatherImage.centerYAnchor.constraint(equalTo: dayLabel.centerYAnchor),
+            weatherImage.widthAnchor.constraint(equalToConstant: contentView.frame.height / 2.2),
+            weatherImage.heightAnchor.constraint(equalToConstant: contentView.frame.height / 2.2)
         ])
         
         NSLayoutConstraint.activate([
-            nightTempLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            nightTempLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            nightTempLabel.heightAnchor.constraint(equalToConstant: contentView.frame.height),
-            nightTempLabel.widthAnchor.constraint(equalToConstant: contentView.frame.width / 4)
+            maxTempLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -15),
+            maxTempLabel.centerYAnchor.constraint(equalTo: dayLabel.centerYAnchor),
+            maxTempLabel.heightAnchor.constraint(equalToConstant: contentView.frame.height),
+            maxTempLabel.widthAnchor.constraint(equalToConstant: contentView.frame.width / 4)
         ])
         
         
         NSLayoutConstraint.activate([
-            dayTempLabel.trailingAnchor.constraint(equalTo: nightTempLabel.leadingAnchor, constant: 0),
-            dayTempLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            dayTempLabel.heightAnchor.constraint(equalToConstant: contentView.frame.height),
-            dayTempLabel.widthAnchor.constraint(equalToConstant: contentView.frame.width / 5)
+            minTempLabel.trailingAnchor.constraint(equalTo: maxTempLabel.leadingAnchor, constant: 0),
+            minTempLabel.centerYAnchor.constraint(equalTo: dayLabel.centerYAnchor),
+            minTempLabel.heightAnchor.constraint(equalToConstant: contentView.frame.height),
+            minTempLabel.widthAnchor.constraint(equalToConstant: contentView.frame.width / 5)
         ])
         
         

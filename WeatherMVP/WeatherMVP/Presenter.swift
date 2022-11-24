@@ -10,8 +10,8 @@ import UIKit
 
 
 protocol WeatherPresenterDelegate: AnyObject {
-    func presentCurrentWeather(weather: [Weather])
-    func presentWeatherPerDay(weather: [WeatherPerDay])
+    func presentCurrentWeather(weather: Weather)
+    func presentWeatherPerDay(weather: [DayWeather])
     func presentForecast(weather: [Forecast])
 }
 
@@ -30,14 +30,15 @@ class WeatherPresenter{
             do {
                 let data = try Data(contentsOf: url)
                 
-                let weather = try decoder.decode([Weather].self, from: data)
+                let weather = try decoder.decode(Weather.self, from: data)
                 self.delegate?.presentCurrentWeather(weather: weather)
                 
-                let weatherPerDay = try decoder.decode([WeatherPerDay].self, from: data)
-                self.delegate?.presentWeatherPerDay(weather: weatherPerDay)
+                let dayData = weather.forecast
+                let weekData = weather.weatherPerDay
                 
-                let forecast = try decoder.decode([Forecast].self, from: data)
-                self.delegate?.presentForecast(weather: forecast)
+                self.delegate?.presentWeatherPerDay(weather: weekData)
+                self.delegate?.presentForecast(weather: dayData)
+                
             } catch {
                 print(error.localizedDescription)
             }

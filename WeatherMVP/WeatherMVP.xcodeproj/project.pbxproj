@@ -21,6 +21,7 @@
 		78FEC876292E6364002F97E4 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEC875292E6364002F97E4 /* Presenter.swift */; };
 		78FEC878292E640C002F97E4 /* TestTaskJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 78FEC877292E640C002F97E4 /* TestTaskJSON.json */; };
 		78FEC87A292E6423002F97E4 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEC879292E6423002F97E4 /* WeatherModel.swift */; };
+		78FEC87C292FA124002F97E4 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEC87B292FA124002F97E4 /* DateExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		78FEC875292E6364002F97E4 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		78FEC877292E640C002F97E4 /* TestTaskJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestTaskJSON.json; sourceTree = "<group>"; };
 		78FEC879292E6423002F97E4 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		78FEC87B292FA124002F97E4 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				78715D89292A66E800D651F0 /* WeatherController.swift */,
 				78FEC875292E6364002F97E4 /* Presenter.swift */,
 				78FEC879292E6423002F97E4 /* WeatherModel.swift */,
+				78FEC87B292FA124002F97E4 /* DateExtension.swift */,
 				78293DB6292D0B8D00AE4609 /* Cells */,
 				78715D8B292A66E800D651F0 /* Main.storyboard */,
 				78715D8E292A66ED00D651F0 /* Assets.xcassets */,
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78FEC876292E6364002F97E4 /* Presenter.swift in Sources */,
+				78FEC87C292FA124002F97E4 /* DateExtension.swift in Sources */,
 				78293DB5292D0B8700AE4609 /* CollectionViewCell.swift in Sources */,
 				78715D8A292A66E800D651F0 /* WeatherController.swift in Sources */,
 				78FEC87A292E6423002F97E4 /* WeatherModel.swift in Sources */,
