@@ -18,6 +18,9 @@
 		78715D9D292A66EE00D651F0 /* WeatherMVPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78715D9C292A66EE00D651F0 /* WeatherMVPTests.swift */; };
 		78715DA7292A66EE00D651F0 /* WeatherMVPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78715DA6292A66EE00D651F0 /* WeatherMVPUITests.swift */; };
 		78715DA9292A66EE00D651F0 /* WeatherMVPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78715DA8292A66EE00D651F0 /* WeatherMVPUITestsLaunchTests.swift */; };
+		78FEC876292E6364002F97E4 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEC875292E6364002F97E4 /* Presenter.swift */; };
+		78FEC878292E640C002F97E4 /* TestTaskJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 78FEC877292E640C002F97E4 /* TestTaskJSON.json */; };
+		78FEC87A292E6423002F97E4 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FEC879292E6423002F97E4 /* WeatherModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		78715DA2292A66EE00D651F0 /* WeatherMVPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherMVPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		78715DA6292A66EE00D651F0 /* WeatherMVPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMVPUITests.swift; sourceTree = "<group>"; };
 		78715DA8292A66EE00D651F0 /* WeatherMVPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMVPUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		78FEC875292E6364002F97E4 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		78FEC877292E640C002F97E4 /* TestTaskJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestTaskJSON.json; sourceTree = "<group>"; };
+		78FEC879292E6423002F97E4 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,8 @@
 		78293DB6292D0B8D00AE4609 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				78293DB2292D0B7700AE4609 /* TableViewCell.swift */,
+				78293DB4292D0B8700AE4609 /* CollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -113,13 +121,14 @@
 				78715D85292A66E800D651F0 /* AppDelegate.swift */,
 				78715D87292A66E800D651F0 /* SceneDelegate.swift */,
 				78715D89292A66E800D651F0 /* WeatherController.swift */,
+				78FEC875292E6364002F97E4 /* Presenter.swift */,
+				78FEC879292E6423002F97E4 /* WeatherModel.swift */,
 				78293DB6292D0B8D00AE4609 /* Cells */,
-				78293DB2292D0B7700AE4609 /* TableViewCell.swift */,
-				78293DB4292D0B8700AE4609 /* CollectionViewCell.swift */,
 				78715D8B292A66E800D651F0 /* Main.storyboard */,
 				78715D8E292A66ED00D651F0 /* Assets.xcassets */,
 				78715D90292A66ED00D651F0 /* LaunchScreen.storyboard */,
 				78715D93292A66ED00D651F0 /* Info.plist */,
+				78FEC877292E640C002F97E4 /* TestTaskJSON.json */,
 			);
 			path = WeatherMVP;
 			sourceTree = "<group>";
@@ -247,6 +256,7 @@
 			files = (
 				78715D92292A66ED00D651F0 /* LaunchScreen.storyboard in Resources */,
 				78715D8F292A66ED00D651F0 /* Assets.xcassets in Resources */,
+				78FEC878292E640C002F97E4 /* TestTaskJSON.json in Resources */,
 				78715D8D292A66E800D651F0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,8 +282,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78FEC876292E6364002F97E4 /* Presenter.swift in Sources */,
 				78293DB5292D0B8700AE4609 /* CollectionViewCell.swift in Sources */,
 				78715D8A292A66E800D651F0 /* WeatherController.swift in Sources */,
+				78FEC87A292E6423002F97E4 /* WeatherModel.swift in Sources */,
 				78293DB3292D0B7700AE4609 /* TableViewCell.swift in Sources */,
 				78715D86292A66E800D651F0 /* AppDelegate.swift in Sources */,
 				78715D88292A66E800D651F0 /* SceneDelegate.swift in Sources */,

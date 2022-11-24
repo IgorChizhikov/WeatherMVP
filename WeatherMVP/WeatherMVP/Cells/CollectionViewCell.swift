@@ -15,7 +15,7 @@ class CollectionViewCell: UICollectionViewCell {
         let timeLabel = UILabel()
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
         timeLabel.textAlignment = .center
-        timeLabel.font = UIFont(name: "Helvetica", size: 12)
+        timeLabel.font = UIFont(name: "Helvetica", size: 15)
         timeLabel.textColor = .white
         
         return timeLabel
@@ -24,6 +24,8 @@ class CollectionViewCell: UICollectionViewCell {
     let weatherImage: UIImageView = {
         let weatherImage = UIImageView()
         weatherImage.translatesAutoresizingMaskIntoConstraints = false
+        weatherImage.contentMode = .scaleAspectFit
+        weatherImage.tintColor = .white
 
         return weatherImage
     }()
@@ -32,7 +34,7 @@ class CollectionViewCell: UICollectionViewCell {
         let tempLabel = UILabel()
         tempLabel.translatesAutoresizingMaskIntoConstraints = false
         tempLabel.textAlignment = .center
-        tempLabel.font = UIFont(name: "Helvetica", size: 12)
+        tempLabel.font = UIFont(name: "Helvetica", size: 15)
         tempLabel.textColor = .white
         
         return tempLabel

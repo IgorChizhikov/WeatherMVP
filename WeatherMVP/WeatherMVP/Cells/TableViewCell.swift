@@ -19,9 +19,9 @@ class TableViewCell: UITableViewCell {
         return dayLabel
     }()
     
-    private var weatherImage: UIImageView = {
+    var weatherImage: UIImageView = {
         let weatherImage = UIImageView()
-        weatherImage.contentMode = .scaleAspectFill
+        weatherImage.contentMode = .scaleAspectFit
         weatherImage.translatesAutoresizingMaskIntoConstraints = false
         
         return weatherImage
