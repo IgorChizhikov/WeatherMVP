@@ -23,12 +23,6 @@ struct Weather: Codable {
         case weatherPerDay = "weather_per_day"
         case forecast
     }
-    
-    init(city: String? = "", temperature: String? = "", weatherDescription: String? = "") {
-            self.city = city
-            self.temperature = temperature
-            self.weatherDescription = weatherDescription
-        }
 }
 
 // MARK: - WeatherPerDay -
@@ -44,12 +38,7 @@ struct DayWeather: Codable {
         case weatherType = "weather_type"
         case temperature, sunset
     }
-    init(timestamp: String? = "", weatherType: String? = "", temperature: String? = "", sunset: Bool? = false) {
-        self.timestamp = timestamp
-        self.weatherType = weatherType
-        self.temperature = temperature
-        self.sunset = sunset
-    }
+
 }
 
 
@@ -67,11 +56,5 @@ struct Forecast: Codable {
         case maxTemperature = "max_temperature"
         case weatherType = "weather_type"
     }
-    
-    init(date: String? = "", minTemperature: Int? = 0, maxTemperature: Int? = 0, weatherType: String? = "") {
-        self.date = date
-        self.minTemperature = minTemperature
-        self.maxTemperature = maxTemperature
-        self.weatherType = weatherType
-    }
+
 }
