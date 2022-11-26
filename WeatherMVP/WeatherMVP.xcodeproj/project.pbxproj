@@ -120,18 +120,12 @@
 		78715D84292A66E800D651F0 /* WeatherMVP */ = {
 			isa = PBXGroup;
 			children = (
-				78715D85292A66E800D651F0 /* AppDelegate.swift */,
-				78715D87292A66E800D651F0 /* SceneDelegate.swift */,
-				78715D89292A66E800D651F0 /* WeatherController.swift */,
-				78FEC875292E6364002F97E4 /* Presenter.swift */,
-				78FEC879292E6423002F97E4 /* WeatherModel.swift */,
-				78FEC87B292FA124002F97E4 /* DateExtension.swift */,
+				78B7BDAE2931FDFF005CA38B /* Supporting Files */,
+				78B7BDAC2931FCEC005CA38B /* Presenter */,
+				78B7BDAD2931FD07005CA38B /* Model */,
+				78B7BDAF2931FE36005CA38B /* Controllers */,
 				78293DB6292D0B8D00AE4609 /* Cells */,
-				78715D8B292A66E800D651F0 /* Main.storyboard */,
-				78715D8E292A66ED00D651F0 /* Assets.xcassets */,
-				78715D90292A66ED00D651F0 /* LaunchScreen.storyboard */,
-				78715D93292A66ED00D651F0 /* Info.plist */,
-				78FEC877292E640C002F97E4 /* TestTaskJSON.json */,
+				78B7BDB02931FEC1005CA38B /* Resources */,
 			);
 			path = WeatherMVP;
 			sourceTree = "<group>";
@@ -151,6 +145,52 @@
 				78715DA8292A66EE00D651F0 /* WeatherMVPUITestsLaunchTests.swift */,
 			);
 			path = WeatherMVPUITests;
+			sourceTree = "<group>";
+		};
+		78B7BDAC2931FCEC005CA38B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				78FEC875292E6364002F97E4 /* Presenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		78B7BDAD2931FD07005CA38B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				78FEC879292E6423002F97E4 /* WeatherModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		78B7BDAE2931FDFF005CA38B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				78715D85292A66E800D651F0 /* AppDelegate.swift */,
+				78715D87292A66E800D651F0 /* SceneDelegate.swift */,
+				78FEC87B292FA124002F97E4 /* DateExtension.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		78B7BDAF2931FE36005CA38B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				78715D89292A66E800D651F0 /* WeatherController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		78B7BDB02931FEC1005CA38B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				78715D8B292A66E800D651F0 /* Main.storyboard */,
+				78715D8E292A66ED00D651F0 /* Assets.xcassets */,
+				78715D90292A66ED00D651F0 /* LaunchScreen.storyboard */,
+				78FEC877292E640C002F97E4 /* TestTaskJSON.json */,
+				78715D93292A66ED00D651F0 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -471,7 +511,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6KLJ6HZ6A6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherMVP/Info.plist;
+				INFOPLIST_FILE = WeatherMVP/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -500,7 +540,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6KLJ6HZ6A6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherMVP/Info.plist;
+				INFOPLIST_FILE = WeatherMVP/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
