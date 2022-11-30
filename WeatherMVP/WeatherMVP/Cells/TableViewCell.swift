@@ -29,23 +29,22 @@ class TableViewCell: UITableViewCell {
     }()
     
     var minTempLabel: UILabel = {
-        let dayTempLabel = UILabel()
-        dayTempLabel.textColor = .systemGray2
-        dayTempLabel.translatesAutoresizingMaskIntoConstraints = false
-        dayTempLabel.textAlignment = .right
-        dayTempLabel.numberOfLines = 0
+        let minTempLabel = UILabel()
+        minTempLabel.textColor = .systemGray2
+        minTempLabel.translatesAutoresizingMaskIntoConstraints = false
+        minTempLabel.textAlignment = .right
+        minTempLabel.numberOfLines = 0
         
-        return dayTempLabel
+        return minTempLabel
     }()
     
     var maxTempLabel: UILabel = {
-        let nightTempLabel = UILabel()
-        nightTempLabel.textColor = .white
-        nightTempLabel.translatesAutoresizingMaskIntoConstraints = false
-        nightTempLabel.textAlignment = .right
-        nightTempLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        let maxTempLabel = UILabel()
+        maxTempLabel.textColor = .white
+        maxTempLabel.translatesAutoresizingMaskIntoConstraints = false
+        maxTempLabel.textAlignment = .right
         
-        return nightTempLabel
+        return maxTempLabel
     }()
     
     let separatorView: UIView = {
@@ -92,7 +91,7 @@ class TableViewCell: UITableViewCell {
             dayLabel.heightAnchor.constraint(equalToConstant: contentView.frame.height)
             
         ])
-        dayLabel.font =  UIFont.systemFont(ofSize: contentView.frame.height / 3, weight: .regular)
+        dayLabel.font =  UIFont.systemFont(ofSize: contentView.frame.height / 2.6, weight: .regular)
         NSLayoutConstraint.activate([
             weatherImage.leadingAnchor.constraint(equalTo: dayLabel.trailingAnchor, constant: 15),
             weatherImage.centerYAnchor.constraint(equalTo: dayLabel.centerYAnchor),
@@ -106,7 +105,7 @@ class TableViewCell: UITableViewCell {
             maxTempLabel.heightAnchor.constraint(equalToConstant: contentView.frame.height),
             maxTempLabel.widthAnchor.constraint(equalToConstant: contentView.frame.width / 4)
         ])
-        maxTempLabel.font =  UIFont.systemFont(ofSize: contentView.frame.height / 3, weight: .regular)
+        maxTempLabel.font =  UIFont.systemFont(ofSize: contentView.frame.height / 2.6, weight: .regular)
         
         NSLayoutConstraint.activate([
             minTempLabel.trailingAnchor.constraint(equalTo: maxTempLabel.leadingAnchor, constant: 0),
@@ -114,7 +113,7 @@ class TableViewCell: UITableViewCell {
             minTempLabel.heightAnchor.constraint(equalToConstant: contentView.frame.height),
             minTempLabel.widthAnchor.constraint(equalToConstant: contentView.frame.width / 5)
         ])
-        minTempLabel.font =  UIFont.systemFont(ofSize: contentView.frame.height / 3, weight: .regular)
+        minTempLabel.font =  UIFont.systemFont(ofSize: contentView.frame.height / 2.6, weight: .regular)
         
         
 

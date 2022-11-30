@@ -151,7 +151,7 @@ class WeatherController: UIViewController {
         NSLayoutConstraint.activate([
             container.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             container.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            container.topAnchor.constraint(equalTo: currentTemplabel.bottomAnchor, constant: 40),
+            container.topAnchor.constraint(equalTo: currentTemplabel.bottomAnchor, constant: view.frame.width / 10),
             container.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1 / 6 )
         ])
     }
@@ -179,10 +179,10 @@ class WeatherController: UIViewController {
     func setupDayCollectionViewConstraints() {
         container.addSubview(dayCollectionView)
         NSLayoutConstraint.activate([
-            dayCollectionView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 15),
-            dayCollectionView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -15),
-            dayCollectionView.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 10),
-            dayCollectionView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -10)
+            dayCollectionView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 10),
+            dayCollectionView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -10),
+            dayCollectionView.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 5),
+            dayCollectionView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -5)
         ])
         dayCollectionView.delegate = self
         dayCollectionView.dataSource = self
@@ -227,17 +227,21 @@ extension WeatherController: UICollectionViewDelegate, UICollectionViewDataSourc
         let height = dayCollectionView.frame.height
         
         if indexPath.item == 3 {
-            return CGSize(width: ((dayCollectionView.frame.width - width) / 2), height: dayCollectionView.frame.height)
+            return CGSize(width: ((dayCollectionView.frame.width - width) / 1.7), height: dayCollectionView.frame.height)
         }
         return CGSize(width: width, height: height)
     }
+    
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dayCollectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
+        cell.tempLabel.font = UIFont.systemFont(ofSize: cell.weatherImage.frame.width / 1.5)
+        cell.timeLabel.font = UIFont.systemFont(ofSize: cell.weatherImage.frame.width / 1.5)
         
         if indexPath.item == 3 {
             cell.tempLabel.text = "Заход солнца"
             let image = UIImage(systemName: "sunset.fill")
+            cell.tempLabel.font = UIFont.systemFont(ofSize: cell.weatherImage.frame.width / 1.2)
             cell.weatherImage.image = image
             if #available(iOS 15.0, *) {
                 let config = UIImage.SymbolConfiguration(paletteColors: [.white, .yellow])
