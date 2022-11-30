@@ -57,23 +57,25 @@ class CollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             timeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             timeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            timeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            timeLabel.heightAnchor.constraint(equalToConstant: 15)
+            timeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            timeLabel.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 1 / 3 )
         ])
+        timeLabel.font =  UIFont.systemFont(ofSize: weatherImage.frame.height / 2.5, weight: .regular)
         contentView.addSubview(weatherImage)
         NSLayoutConstraint.activate([
             weatherImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             weatherImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            weatherImage.widthAnchor.constraint(equalToConstant: contentView.frame.height / 2.5),
-            weatherImage.heightAnchor.constraint(equalToConstant: contentView.frame.height / 2.5)
+            weatherImage.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 1 / 3 ),
+            weatherImage.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 1 / 3 )
         ])
         contentView.addSubview(tempLabel)
         NSLayoutConstraint.activate([
             tempLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             tempLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            tempLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
-            tempLabel.heightAnchor.constraint(equalToConstant: 15)
+            tempLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
+            tempLabel.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 1 / 3 )
         ])
+        tempLabel.font =  UIFont.systemFont(ofSize: weatherImage.frame.height / 2.5, weight: .regular)
 
     }
     

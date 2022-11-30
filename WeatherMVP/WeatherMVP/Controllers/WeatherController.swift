@@ -55,7 +55,6 @@ class WeatherController: UIViewController {
         currentInfoLabel.numberOfLines = 0
         currentInfoLabel.lineBreakMode = .byWordWrapping
         currentInfoLabel.textColor = .white
-        currentInfoLabel.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         currentInfoLabel.translatesAutoresizingMaskIntoConstraints = false
         return currentInfoLabel
     }()
@@ -86,8 +85,6 @@ class WeatherController: UIViewController {
         weekTableView.separatorStyle = .none
         if #available(iOS 15.0, *) {
             weekTableView.sectionHeaderTopPadding = 0.0
-        } else {
-            // Fallback on earlier versions
         }
         weekTableView.isScrollEnabled = false
         return weekTableView
@@ -109,8 +106,9 @@ class WeatherController: UIViewController {
         setupDayCollectionViewConstraints()
         setupWeekTableViewConstraints()
         weekTableView.backgroundColor = UIColor(red: 65.0/255.0, green: 76.0/255.0, blue: 95.0/255.0, alpha: 1.0).withAlphaComponent(0.6)
-        
+        currentInfoLabel.font = UIFont.systemFont(ofSize: view.frame.width / 35, weight: .regular)
         addCurrentWeatherInfo()
+        
     }
     
     func addCurrentWeatherInfo(){
@@ -154,7 +152,7 @@ class WeatherController: UIViewController {
             container.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             container.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             container.topAnchor.constraint(equalTo: currentTemplabel.bottomAnchor, constant: 40),
-            container.heightAnchor.constraint(equalToConstant: view.frame.width / 2.7)
+            container.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1 / 6 )
         ])
     }
     
@@ -162,9 +160,9 @@ class WeatherController: UIViewController {
         container.addSubview(currentInfoLabel)
         NSLayoutConstraint.activate([
             currentInfoLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 15),
-            currentInfoLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -60),
-            currentInfoLabel.topAnchor.constraint(equalTo: container.topAnchor, constant: 10),
-            currentInfoLabel.heightAnchor.constraint(equalToConstant: 32)
+            currentInfoLabel.widthAnchor.constraint(equalTo: container.widthAnchor, multiplier: 1 / 1.4),
+            currentInfoLabel.topAnchor.constraint(equalTo: container.topAnchor, constant: 5),
+            currentInfoLabel.heightAnchor.constraint(equalTo: container.heightAnchor, multiplier: 1 / 3.8)
         ])
     }
     
@@ -225,15 +223,15 @@ extension WeatherController: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = dayCollectionView.frame.height / 1.2
+        let width = dayCollectionView.frame.width / 2 / 3
         let height = dayCollectionView.frame.height
         
         if indexPath.item == 3 {
-            return CGSize(width: dayCollectionView.frame.width - dayCollectionView.frame.width / 1.5, height: dayCollectionView.frame.height)
+            return CGSize(width: ((dayCollectionView.frame.width - width) / 2), height: dayCollectionView.frame.height)
         }
         return CGSize(width: width, height: height)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dayCollectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath) as! CollectionViewCell
         
@@ -313,7 +311,7 @@ extension WeatherController: UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 45))
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: tableView.frame.height / 11))
         
         let y = (headerView.frame.height - headerView.frame.height / 2.5) / 2
         let image = UIImageView()
@@ -324,7 +322,7 @@ extension WeatherController: UITableViewDelegate, UITableViewDataSource{
         let label = UILabel()
         label.frame = CGRect.init(x: (20 + headerView.frame.height / 2.5), y: 0, width: headerView.frame.width-10-headerView.frame.height, height: headerView.frame.height)
         label.text = "10-DAY FORECAST"
-        label.font = .systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: headerView.frame.height / 3.5, weight: .regular)
         label.textColor = .systemGray
         
         let separator = UIView()
